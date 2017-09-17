@@ -51,7 +51,7 @@ function viewCart() {
 function total() {
   let totalCost = 0
   for (let i=0; i < cart.length; i++) {
-    let item = Object.keys(cart[i])
+    var item = Object.keys(cart[i])
     let itemPrice = cart[i][item]
     totalCost = totalCost + itemPrice
   }
@@ -59,10 +59,10 @@ function total() {
 }
 
 
-// function removeFromCart(item) {
-//   // write your code here
-// }
-//
-// function placeOrder(cardNumber) {
-//   // write your code here
-// }
+function removeFromCart(item) {
+  
+}
+
+function placeOrder(cardNumber) {
+  // write your code here
+}
