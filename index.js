@@ -16,36 +16,49 @@ function addToCart(itemName) {
   console.log(`${itemName} has been added to your cart.`)
   return cart
 }
-
 function viewCart() {
-  if (cart.length === 0) {
-    console.log("Your shopping cart is empty.")
-  }
-  else {
-    var name = Object.keys(cart)
-    for (let i=0; i < name.length; i++) {
-      var item = name[i]
-      var price = cart.item
-      console.log(`In your cart, you have ${item} at $${price}.`)
-    }
+  const l = cart.length;
 
-    // var price =
-    // console.log(`In your cart, you have ${name} at $${price}.`)
+  if (!l) {
+    return console.log("Your shopping cart is empty.");
   }
-  // else {
-  //   var inCart= "In your cart you have "
-  //   for (let i=0; i < cart.length; i++) {
-  //     inCart = inCart + `${name} at $${price}`
-  //   }
-  //   inCart= inCart + `and ${name} at $${price}.`
-  //   return inCart
-  //   }
+
+  let itemsAndPrices = [];
+
+  for (let i = 0; i < l; i++) {
+    let itemAndPrice = cart[i];
+    let item = Object.keys(itemAndPrice)[0];
+    let price = itemAndPrice[item];
+
+    itemsAndPrices.push(`${item} at \$${price}`);
+  }
+
+  switch(itemsAndPrices.length) {
+    case 1:
+      break;
+    case 2:
+      itemsAndPrices = itemsAndPrices.join(" and ");
+      break;
+    default:
+      itemsAndPrices[l-1] = "and ".concat(itemsAndPrices[l-1]);
+      itemsAndPrices = itemsAndPrices.join(", ");
+  }
+
+  console.log(`In your cart, you have ${itemsAndPrices}.`);
 }
 
-// function total() {
-//   // write your code here
-// }
-//
+
+function total() {
+  let totalCost = 0
+  for (let i=0; i < cart.length; i++) {
+    let item = Object.keys(cart[i])
+    let itemPrice = cart[i][item]
+    totalCost = totalCost + itemPrice
+  }
+  return totalCost
+}
+
+
 // function removeFromCart(item) {
 //   // write your code here
 // }
