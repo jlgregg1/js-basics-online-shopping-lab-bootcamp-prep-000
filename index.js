@@ -65,6 +65,6 @@ function removeFromCart(itemName) {
     return cart
 }
 
-function placeOrder(cardNumber) {
-  // write your code here
-}
+// function placeOrder(cardNumber) {
+//   // write your code here
+// }
