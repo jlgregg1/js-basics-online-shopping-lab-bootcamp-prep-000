@@ -60,9 +60,10 @@ function total() {
 
 
 function removeFromCart(itemName) {
-  if (cart.hasOwnProperty) {
+  if (cart.hasOwnProperty= false ) {
     console.log("That item is not in your cart.")
     return cart
+  else cart.slice
 }
 }
 
